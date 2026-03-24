@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "chatads": {
+      "url": "https://api.getchatads.com/mcp/mcp",
+      "transport": "http",
+      "headers": {
+        "x-api-key": "cak_your_api_key"
+      }
+    }
+  }
+}
