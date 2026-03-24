@@ -4,7 +4,7 @@
 
 Turn AI conversations into affiliate revenue — no code changes required.
 
-ChatAds gives AI assistants a tool that scans their responses for product mentions and returns monetized affiliate links from Amazon and other major retailers. Your AI mentions headphones, ChatAds returns a tracked link to buy them.
+ChatAds gives AI assistants a tool that scans their responses for product mentions and returns monetized affiliate links from Amazon. Your AI mentions headphones, ChatAds returns a tracked link to buy them.
 
 This is a **hosted MCP server**. No local install, no dependencies — just a JSON config block and an API key.
 
@@ -84,7 +84,7 @@ With the header `x-api-key: cak_your_api_key`.
 ```
 User asks AI about headphones
         ↓
-AI generates response mentioning Sony WH-1000XM5
+AI generates response mentioning, say, Sony WH-1000XM5
         ↓
 ChatAds MCP tool scans the response
         ↓
@@ -105,11 +105,10 @@ Send an AI assistant's response to ChatAds and get affiliate product links back.
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
-| `message` | Yes | string | The AI response text or image URL to scan for product mentions (max 10,000 chars for text) |
+| `message` | Yes | string | The AI response text or image URL to scan for product mentions (max 10,000 chars for text, min 10 words) |
 | `input_type` | No | string | `text` (default) or `image_url` |
 | `extraction_mode` | No | string | `none`, `fast`, or `standard` (default: `standard`). Forced to `none` for `image_url` |
 | `resolution_mode` | No | string | `none` or `standard` (default: `standard`) |
-| `max_offers` | No | integer | Max affiliate links to return, 1–2 (default: `1`) |
 | `image_title_filter` | No | string | Filter image resolution results by title (max 200 chars, `image_url` only) |
 | `ip` | No | string | End-user IP for geo-targeting |
 | `country` | No | string | ISO 3166-1 alpha-2 country code |
@@ -179,14 +178,14 @@ MCP clients handle this automatically — you only need this for direct API usag
 
 ## About ChatAds
 
-ChatAds is affiliate monetization infrastructure for AI applications. Send us an AI response, get back tracked affiliate links — from Amazon, Home Depot, Chewy, and other major retailers.
+ChatAds is affiliate monetization infrastructure for AI applications. Send us an AI response, get back tracked affiliate links. As of 2026, our focus is on Amazon affiliate offers, with more partners onboarding soon.
 
 **Built for AI-native teams:**
 - Chatbots and AI assistants that recommend products
 - Recipe apps, shopping copilots, review sites
-- Any conversational UI where users ask about things to buy
+- Any conversational agent where users ask about things to buy
 
-**How it works under the hood:** NLP extraction identifies product mentions in text, then resolution matches them to real affiliate offers with tracked links, product metadata, and pricing. The full pipeline runs in under 300ms.
+**Response times:** We average 200ms, with p50 at 75ms. Non-monetizeable messages get returned < 25ms.
 
 **Free to start.** No credit card required. Pay-as-you-go when you're ready to scale.
 
